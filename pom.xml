@@ -14,7 +14,7 @@
 	<name>springboot_registration_and_login</name>
 	<description>Registration project for Spring Boot</description>
 	<properties>
-		<java.version>16</java.version>
+		<java.version>15</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
