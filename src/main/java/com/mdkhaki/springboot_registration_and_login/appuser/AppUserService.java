@@ -3,7 +3,6 @@ package com.mdkhaki.springboot_registration_and_login.appuser;
 import com.mdkhaki.springboot_registration_and_login.registration.token.ConfirmationToken;
 import com.mdkhaki.springboot_registration_and_login.registration.token.ConfirmationTokenService;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -34,6 +33,8 @@ public class AppUserService implements UserDetailsService {
     public String signUpUser(AppUser appUser) {
         boolean userExists = appUserRepository.findByEmail(appUser.getEmail()).isPresent();
         if(userExists) {
+            // TODO: if email not confirmed send confirmation email again
+
             throw new IllegalStateException("User exists!");
         }
         String encodedPassword = bCryptPasswordEncoder.encode(appUser.getPassword());
